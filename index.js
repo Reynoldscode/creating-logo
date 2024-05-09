@@ -1,8 +1,11 @@
 
 const inquierer = require("inquirer");
-const colors = require("colors")
-const {CreateLogo} = require("./lib/shapes")
-const { Color } = require('./colorModule.js');
+const {Shape} = require("./lib/shapes.js");
+const {Color} = require("./lib/color.js");
+const {Font} = require("./lib/text.js");
+
+
+
 
 const inquirer = require("inquirer");
 
@@ -36,6 +39,8 @@ inquirer
   ])
   .then((answers) => {
     const user = new Shape(answers.text, answers.textColour, answers.shapeType, answers.shapColour);
+    const user = new Color(answers.text, answers.textColour, answers.shapeType, answers.shapColour);
+    const user = new Font(answers.text, answers.textColour, answers.shapeType, answers.shapColour);
     user.drawShape();
   });
 
